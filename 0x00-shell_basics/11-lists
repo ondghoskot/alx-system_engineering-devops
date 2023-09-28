@@ -1,9 +1,2 @@
 #!/bin/bash
-echo ".:"
-ls -la
-cd ..
-echo -e "\n..:"
-ls -la
-cd /boot
-echo -e "\n/boot:"
-ls -la
+find . .. /boot -maxdepth 1 -exec ls -la {} \; 
