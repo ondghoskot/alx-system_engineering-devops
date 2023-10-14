@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type f -iname "*.gif" -exec sh -c 'echo -n "$1" | rev | cut -d "." -f 2 | rev' sh {} \n | LC_ALL=C sort -f | tr '\n' '\n'
