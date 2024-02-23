@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Indefinitely prints a sentec
+# Indefinitely prints a sentence except u can't kill the process
 trap 'echo "I am invinvible!!!"' SIGTERM
 while true; do
 	echo "To infinity and beyond"
