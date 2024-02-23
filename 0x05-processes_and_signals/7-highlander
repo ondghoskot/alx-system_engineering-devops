@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Indefinitely prints a sentence
-trap 'echo I am invinvible!!!' SIGTERM
+# Indefinitely prints a sentec
+trap 'echo "I am invinvible!!!"' SIGTERM
 while true; do
 	echo "To infinity and beyond"
 	sleep 2
