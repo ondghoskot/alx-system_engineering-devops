@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
-# Writes a phrase ten times using until loop
+# Displays 12 hours and 59 minutes...literally
 
-i=0
-until [ $i -eq 10 ]
+hours=0
+until [ "$hours" -eq 13 ]
 do
-	echo "Best School"
-	(( i++ ))
+	minutes=1
+	echo "Hour: "$hours""
+	until [ "$minutes" -eq 60 ]
+	do
+		echo "$minutes"
+		(( minutes++ ))
+	done
+	(( hours++ ))
 done
