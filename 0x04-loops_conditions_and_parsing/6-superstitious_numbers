@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Writes a phrase ten times using while loop and another
-#+ phrase in the middle
+# Writes numbers from 1 to 20 with some random unlucky
+#+ statements
 
 i=1
 while [ $i -le 20 ]
