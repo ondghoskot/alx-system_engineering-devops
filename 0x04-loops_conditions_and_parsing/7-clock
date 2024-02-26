@@ -2,11 +2,11 @@
 # Displays 12 hours and 59 minutes...literally
 
 hours=0
-until [ "$hours" -eq 13 ]
+while [ "$hours" -lt 13 ]
 do
 	minutes=1
-	echo "Hour: ${hours}"
-	until [ "$minutes" -eq 60 ]
+	echo "Hour: $hours"
+	while [ "$minutes" -lt 60 ]
 	do
 		echo "$minutes"
 		(( minutes++ ))
