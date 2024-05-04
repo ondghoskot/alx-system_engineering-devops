@@ -9,7 +9,7 @@ frontend http_front
     default_backend http_back
 backend http_back
     balance roundrobin
-    server web-01 531338-web-01:80 54.208.162.17 check
-    server web-02 531338-web-02:80 3.84.158.60 check
+    server 531338-web-01:80 54.208.162.17 check
+    server 531338-web-02:80 3.84.158.60 check
 EOF
 sudo service haproxy restart
