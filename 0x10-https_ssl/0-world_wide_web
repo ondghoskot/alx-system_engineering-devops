@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# configuring the domain zone
+
+subdomain_info() {
+    DN="$1"
+    SUB_DOMAIN="$2"
+    RECORD_TYPE=$(dig "$SUB_DOMAIN.$DN" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+    DESTINATION=$(dig +short "$SUB_DOMAIN.$DN" | awk '{print $1}')
+    echo "The subdomain $SUB_DOMAIN is a $RECORD_TYPE record and points to $DESTINATION"
+}
+
+default_subdomains_info() {
+    DN="$1"
+    DEFAULT=("www" "lb-01" "web-01" "web-02")
+    for SUB_DOMAIN in "${DEFAULT[@]}"; do
+        subdomain_info "$DN" "$SUB_DOMAIN"
+    done
+}
+if [[ $# -eq 1 ]]
+then
+    default_subdomains_info "$1"
+elif [[ $# -eq 2 ]]
+then
+    subdomain_info "$1" "$2"
+fi
+
