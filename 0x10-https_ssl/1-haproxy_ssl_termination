@@ -1,12 +1,13 @@
 frontend www-http
-    bind *:80
-    redirect scheme https code 301 if !{ ssl_fc }
+        bind *:80
+        default_backend www-backend
+
 frontend www-https
-    bind *:443 ssl crt /ssl_cer/live/www.anassch.tech/fullchain.pem
-    reqadd X-Forwarded-Proto:\ https
-    default_backend www-backend
+        bind *:443 ssl crt /etc/haproxy/certs/anassch.tech.pem
+        default_backend www-backend
+
 backend www-backend
-    mode http
-    balance roundrobin
-    server 531338-web-01 54.197.21.225:80 check
-    server 531338-web-02 3.84.158.60:80 check
+        balance roundrobin
+        redirect scheme https if !{ ssl_fc }
+        server 531338-web-01 54.197.21.225:80 check
+        server 531338-web-02 3.84.158.60:80 check
