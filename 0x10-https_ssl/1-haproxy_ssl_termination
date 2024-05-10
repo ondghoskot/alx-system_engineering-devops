@@ -10,4 +10,4 @@ backend www-backend
         balance roundrobin
         redirect scheme https if !{ ssl_fc }
         server 531338-web-01 54.197.21.225:80 check
-        server 531338-web-02 3.84.158.60:80 check
+        server 531338-web-02 52.87.255.100:80 check
