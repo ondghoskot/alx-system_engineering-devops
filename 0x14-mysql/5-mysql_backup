@@ -3,4 +3,3 @@
 DATE=$(date +%d-%m-%Y)
 mysqldump -u root -p"$1" --all-databases > "backup.sql"
 tar -cvzf "${DATE}.tar.gz" "backup.sql"
-rm "backup.sql"
