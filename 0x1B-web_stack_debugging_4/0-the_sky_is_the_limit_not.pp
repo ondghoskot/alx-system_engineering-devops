@@ -4,6 +4,6 @@ exec { 'change ULIMIT':
   provider => shell
 }
 exec { 'nginx restart':
-  command  => "service nginx restart",
+  command  => 'service nginx restart',
   provider => shell
 }
